@@ -8,8 +8,11 @@ namespace LemonadeStand
 {
     class Game
     {
-        Run()
+      
+        public void Run()
         {
+       Player player1 = new Player();
+            player1.MakePlayerName();
 
         }
     }
