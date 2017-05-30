@@ -11,9 +11,11 @@ namespace LemonadeStand
       
         public void Run()
         {
-       Player player1 = new Player();
+            Player player1 = new Player();
             player1.MakePlayerName();
 
+            Day round = new Day();
+            round.GetInventory();
         }
     }
 }

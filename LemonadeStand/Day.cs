@@ -8,6 +8,13 @@ namespace LemonadeStand
 {
     class Day
     {
-
+        public void GetInventory()
+        {
+            Inventory Inventory = new Inventory();
+            Inventory.GetNewCupInventory();
+            Inventory.GetNewLemonInventory();
+            Inventory.GetNewBudget();
+        }
+        
     }
 }
