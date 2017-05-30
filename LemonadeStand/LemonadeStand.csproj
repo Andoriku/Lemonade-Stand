@@ -50,7 +50,9 @@
     <Compile Include="Game.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="NewCups.cs" />
+    <Compile Include="NewIce.cs" />
     <Compile Include="NewLemons.cs" />
+    <Compile Include="NewSugar.cs" />
     <Compile Include="Pitcher.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
