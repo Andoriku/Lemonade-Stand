@@ -12,7 +12,7 @@ namespace LemonadeStand
         public double cupPrice;
         public int GetCups()
         {
-            Console.WriteLine("How many Cups do you want today? enter a number.");
+            Console.WriteLine("How many Cups do you want today? Enter a number.");
             BoughtCups = Convert.ToInt32(Console.ReadLine());
             double cupPrice = BoughtCups * .05;
             Console.WriteLine("You bought " + BoughtCups + " cups for $" + cupPrice);

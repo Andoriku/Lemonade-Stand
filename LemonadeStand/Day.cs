@@ -8,7 +8,14 @@ namespace LemonadeStand
 {
     class Day
     {
+        Weather todaysWeather = new Weather();
         Inventory Inventory = new Inventory();
+  
+        public void GetTodaysWeather()
+        {
+            todaysWeather.GetCurrentWeather();
+        }
+
         public void GetInventory()
         {
             Inventory.GetNewCupInventory();

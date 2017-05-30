@@ -12,7 +12,7 @@ namespace LemonadeStand
         public double iceCubePrice;
         public int GetIceCubes()
         {
-            Console.WriteLine("How many Ice Cubes do you want today? enter a number.");
+            Console.WriteLine("How many Ice Cubes do you want today? Enter a number.");
             BoughtIceCubes = Convert.ToInt32(Console.ReadLine());
             double iceCubePrice = BoughtIceCubes * .03;
             Console.WriteLine("You bought " + BoughtIceCubes + " ice cubes for $" + iceCubePrice);

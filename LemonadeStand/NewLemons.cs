@@ -12,7 +12,7 @@ namespace LemonadeStand
         public double lemonPrice;
         public int GetLemons()
         {
-            Console.WriteLine("How many Lemons do you want today? enter a number.");
+            Console.WriteLine("How many Lemons do you want today? Enter a number.");
             BoughtLemons = Convert.ToInt32(Console.ReadLine());
             double lemonPrice = BoughtLemons * .65;
             Console.WriteLine("You bought " + BoughtLemons + " lemons for $" + lemonPrice);

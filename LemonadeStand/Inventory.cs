@@ -66,7 +66,8 @@ namespace LemonadeStand
         }
         public double GetNewBudget()
         {
-            budget -= (cupPrice + lemonPrice);
+            budget -= (cupPrice + lemonPrice + sugarPrice + iceCubePrice);
+            Math.Round(budget, 2);
             Console.WriteLine("you have $" + budget + " left.");
             Console.Read();
             return budget;
