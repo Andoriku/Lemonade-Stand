@@ -23,38 +23,36 @@ namespace LemonadeStand
                 case 1:
                     currentWeather = "stormy but warm";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
-
-                    break;
+                    return currentWeather;
                 case 2:
                     currentWeather = "stormy and cold";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
-                    break;
+                    return currentWeather;
                 case 3:
                     currentWeather = "cloudy and cold";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
-                    break;
+
+                    return currentWeather;
                 case 4:
                     currentWeather = "cloudy and warm";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
-                    break;
+                    return currentWeather;
                 case 5:
                     currentWeather = "sunny and cool";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
-                    break;
+
+                    return currentWeather;
                 case 6:
                     currentWeather = "sunny and hot";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
 
-                    break;
+                    return currentWeather;
                 default:
                     currentWeather = "sunny and hot";
                     Console.WriteLine("todays weather is " + currentWeather + "!");
 
-                    break;
-
-
+                        return currentWeather;
             }
-            return currentWeather;
         }
        
     }

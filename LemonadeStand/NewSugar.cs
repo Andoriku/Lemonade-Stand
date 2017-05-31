@@ -14,7 +14,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many Cups Of Sugar do you want today? Enter a number.");
             BoughtSugar = Convert.ToInt32(Console.ReadLine());
-            double sugarPrice = BoughtSugar * .67;
+            sugarPrice = BoughtSugar * .67;
             Console.WriteLine("You bought " + BoughtSugar + " cups of sugar for $" + sugarPrice);
             return BoughtSugar;
         }

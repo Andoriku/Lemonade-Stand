@@ -10,10 +10,10 @@ namespace LemonadeStand
     {
         Weather todaysWeather = new Weather();
         Inventory Inventory = new Inventory();
-  
+        Pitcher Pitcher = new Pitcher();
         public void GetTodaysWeather()
         {
-            todaysWeather.GetCurrentWeather();
+            todaysWeather.GetCurrentWeather();;
         }
 
         public void GetInventory()
@@ -24,6 +24,19 @@ namespace LemonadeStand
             Inventory.GetNewSugarInventory();
             Inventory.GetNewBudget();
         }
-        
+        public void GetRecipe()
+        {
+            Inventory.GetPitcher();
+        }
+        public void MakeNewPitcher()
+        {
+             Inventory.NewPitcher.Pour10Cups();
+            Console.WriteLine(Inventory.lemonInventory + " " + Inventory.iceCubeInventory + " " + Inventory.sugarInventory);
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(Inventory.NewPitcher.PitcherList[i]);
+            }
+                Console.ReadLine();
+        }
     }
 }

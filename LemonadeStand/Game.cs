@@ -39,12 +39,15 @@ namespace LemonadeStand
             }
         }
         public void RunGame()
+
         {
             Player player1 = new Player();
             player1.MakePlayerName();
 
             Day round = new Day();
             round.GetInventory();
+            round.GetRecipe();
+            round.MakeNewPitcher();
         }
         private void ReadRules()
         {

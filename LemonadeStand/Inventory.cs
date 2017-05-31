@@ -12,6 +12,7 @@ namespace LemonadeStand
         NewLemons NewLemons = new NewLemons();
         NewIce NewIce = new NewIce();
         NewSugar NewSugar = new NewSugar();
+        public Pitcher NewPitcher = new Pitcher();
 
         public double budget = 40;
         public double cupPrice;
@@ -19,13 +20,13 @@ namespace LemonadeStand
         public int cupInventory = 0;
         public double lemonPrice;
         public int boughtLemons;
-        public int lemonInventory = 0;
+        public double lemonInventory = 0;
         public double sugarPrice;
         public int boughtSugar;
-        public int sugarInventory = 0;
+        public double sugarInventory = 0;
         public double iceCubePrice;
         public int boughtIceCubes;
-        public int iceCubeInventory = 0;
+        public double iceCubeInventory = 0;
 
 
         public Inventory()
@@ -46,19 +47,19 @@ namespace LemonadeStand
             Console.WriteLine("You have " + cupInventory + " cups.");
             return cupInventory;
         }
-        public int GetNewLemonInventory()
+        public double GetNewLemonInventory()
         {
-             lemonInventory += boughtLemons;
+            lemonInventory += boughtLemons;
             Console.WriteLine("You have " + lemonInventory + " lemons.");
             return lemonInventory;
         }
-        public int GetNewSugarInventory()
+        public double GetNewSugarInventory()
         {
             sugarInventory += boughtSugar;
             Console.WriteLine("You have " + sugarInventory + " cups of sugar.");
             return sugarInventory;
         }
-        public int GetNewIceInventory()
+        public double GetNewIceInventory()
         {
             iceCubeInventory += boughtIceCubes;
             Console.WriteLine("You have " + iceCubeInventory + " ice cubes.");
@@ -69,8 +70,22 @@ namespace LemonadeStand
             budget -= (cupPrice + lemonPrice + sugarPrice + iceCubePrice);
             Math.Round(budget, 2);
             Console.WriteLine("you have $" + budget + " left.");
-            Console.Read();
+            Console.ReadLine();
             return budget;
         }
+        public void GetPitcher()
+        {
+            NewPitcher.ChoseCupsOfSugarAmount();
+            double recipeSugar = NewPitcher.numberOfCupsOfSugar;
+            sugarInventory -= recipeSugar;
+            NewPitcher.ChoseLemonAmount();
+            double recipeLemons = NewPitcher.numberOfLemons;
+            lemonInventory -= recipeLemons;
+            NewPitcher.ChoseNumberOfIceCubes();
+            double recipeIce = NewPitcher.numberOfIceCubes;
+            iceCubeInventory -= recipeIce;
+  
+        }
+
     }
 }
