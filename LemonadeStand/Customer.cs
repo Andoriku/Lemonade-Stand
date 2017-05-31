@@ -8,21 +8,48 @@ namespace LemonadeStand
 {
     class Customer
     {
-        public int customerType()
+        private int customerProfile;
+        public int  customerLemonPreference;
+        public int customerSugarPreference;
+        public Customer()
+            {
+            customerType();
+            DefineCustomerPref(customerProfile);
+            }
+
+        public void DefineCustomerPref(int customerProfile)
+        {
+            if (customerProfile == 1)
+            {
+                customerLemonPreference = 2;
+                customerSugarPreference = 1;
+            }
+            else if (customerProfile == 2)
+            {
+                customerLemonPreference = 3;
+
+            }
+        }
+        public void customerType()
         {
             Random random = new Random();
             int customer = random.Next(1, 3);
             switch (customer)
             {
                 case 1:
-                    return customer;
+                    customerProfile = 1;
+                    break;
                 case 2:
-                    return customer;
+                    customerProfile = 2;
+                    break;
                 case 3:
-                    return customer;
+                    customerProfile = 3;
+                    break;
                 default:
-                    return customer;
+                    customerProfile = 1;
+                    break;
             }
         }
+        
     }
 }

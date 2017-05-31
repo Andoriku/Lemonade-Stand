@@ -48,7 +48,7 @@
     <Compile Include="CustomerList.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Inventory.cs" />
+    <Compile Include="DailyPurchase.cs" />
     <Compile Include="NewCups.cs" />
     <Compile Include="NewIce.cs" />
     <Compile Include="NewLemons.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TotalInventory.cs" />
     <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>

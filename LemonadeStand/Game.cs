@@ -41,13 +41,16 @@ namespace LemonadeStand
         public void RunGame()
 
         {
+            TotalInventory totalInventory = new TotalInventory();
             Player player1 = new Player();
             player1.MakePlayerName();
-
+            //loop for each round
             Day round = new Day();
+            round.GetTodaysWeather();
             round.GetInventory();
             round.GetRecipe();
             round.MakeNewPitcher();
+            round.GetTodaysCustomers(); 
         }
         private void ReadRules()
         {

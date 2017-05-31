@@ -6,30 +6,29 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Inventory
+    public class DailyPurchase
     {
+        TotalInventory totalInventory = new TotalInventory();
         NewCups NewCups = new NewCups();
         NewLemons NewLemons = new NewLemons();
         NewIce NewIce = new NewIce();
         NewSugar NewSugar = new NewSugar();
         public Pitcher NewPitcher = new Pitcher();
 
-        public double budget = 40;
-        public double cupPrice;
         public int boughtCups;
-        public int cupInventory = 0;
+        public double cupPrice;
         public double lemonPrice;
         public int boughtLemons;
-        public double lemonInventory = 0;
         public double sugarPrice;
         public int boughtSugar;
-        public double sugarInventory = 0;
         public double iceCubePrice;
         public int boughtIceCubes;
-        public double iceCubeInventory = 0;
 
+        public DailyPurchase()
+        {
 
-        public Inventory()
+        }
+        public void DefineDailyPurchase()
         {
             boughtCups = NewCups.GetCups();
             cupPrice = NewCups.GetPriceOfCups();
@@ -39,51 +38,52 @@ namespace LemonadeStand
             sugarPrice = NewSugar.GetPriceOfSugar();
             boughtIceCubes = NewIce.GetIceCubes();
             iceCubePrice = NewIce.GetPriceOfIceCubes();
-
         }
         public int GetNewCupInventory()
         {
-            cupInventory += boughtCups;
-            Console.WriteLine("You have " + cupInventory + " cups.");
-            return cupInventory;
+            totalInventory.cupInventory += boughtCups;
+            Console.WriteLine("You have " + totalInventory.cupInventory + " cups.");
+            return totalInventory.cupInventory;
         }
         public double GetNewLemonInventory()
         {
-            lemonInventory += boughtLemons;
-            Console.WriteLine("You have " + lemonInventory + " lemons.");
-            return lemonInventory;
+            totalInventory.lemonInventory += boughtLemons;
+            Console.WriteLine("You have " + totalInventory.lemonInventory + " lemons.");
+            return totalInventory.lemonInventory;
         }
         public double GetNewSugarInventory()
         {
-            sugarInventory += boughtSugar;
-            Console.WriteLine("You have " + sugarInventory + " cups of sugar.");
-            return sugarInventory;
+            totalInventory.sugarInventory += boughtSugar;
+            Console.WriteLine("You have " + totalInventory.sugarInventory + " cups of sugar.");
+            return totalInventory.sugarInventory;
         }
         public double GetNewIceInventory()
         {
-            iceCubeInventory += boughtIceCubes;
-            Console.WriteLine("You have " + iceCubeInventory + " ice cubes.");
-            return iceCubeInventory;
+            totalInventory.iceCubeInventory += boughtIceCubes;
+            Console.WriteLine("You have " + totalInventory.iceCubeInventory + " ice cubes.");
+            return totalInventory.iceCubeInventory;
         }
         public double GetNewBudget()
         {
-            budget -= (cupPrice + lemonPrice + sugarPrice + iceCubePrice);
-            Math.Round(budget, 2);
-            Console.WriteLine("you have $" + budget + " left.");
+            totalInventory.budget -= (cupPrice + lemonPrice + sugarPrice + iceCubePrice);
+            Math.Round(totalInventory.budget, 2);
+            Console.WriteLine("you have $" + totalInventory.budget + " left.");
             Console.ReadLine();
-            return budget;
+            return totalInventory.budget;
         }
         public void GetPitcher()
         {
             NewPitcher.ChoseCupsOfSugarAmount();
             double recipeSugar = NewPitcher.numberOfCupsOfSugar;
-            sugarInventory -= recipeSugar;
+            totalInventory.sugarInventory -= recipeSugar;
+
             NewPitcher.ChoseLemonAmount();
             double recipeLemons = NewPitcher.numberOfLemons;
-            lemonInventory -= recipeLemons;
+            totalInventory.lemonInventory -= recipeLemons;
+
             NewPitcher.ChoseNumberOfIceCubes();
             double recipeIce = NewPitcher.numberOfIceCubes;
-            iceCubeInventory -= recipeIce;
+            totalInventory.iceCubeInventory -= recipeIce;
   
         }
 

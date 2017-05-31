@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {
+        DailyPurchase dailyPurchase = new DailyPurchase();
         Weather todaysWeather = new Weather();
-        Inventory Inventory = new Inventory();
-        Pitcher Pitcher = new Pitcher();
+        CustomerList todaysCustomers = new CustomerList();
         public void GetTodaysWeather()
         {
-            todaysWeather.GetCurrentWeather();;
+            todaysWeather.GetCurrentWeather();
+            todaysWeather.DipslayCurrentWeather(todaysWeather.currentWeather);
         }
 
         public void GetInventory()
         {
-            Inventory.GetNewCupInventory();
-            Inventory.GetNewLemonInventory();
-            Inventory.GetNewIceInventory();
-            Inventory.GetNewSugarInventory();
-            Inventory.GetNewBudget();
+            dailyPurchase.DefineDailyPurchase();
+            dailyPurchase.GetNewCupInventory();
+            dailyPurchase.GetNewLemonInventory();
+            dailyPurchase.GetNewIceInventory();
+            dailyPurchase.GetNewSugarInventory();
+            dailyPurchase.GetNewBudget();
         }
         public void GetRecipe()
         {
-            Inventory.GetPitcher();
+            dailyPurchase.GetPitcher();
         }
         public void MakeNewPitcher()
         {
-             Inventory.NewPitcher.Pour10Cups();
-            Console.WriteLine(Inventory.lemonInventory + " " + Inventory.iceCubeInventory + " " + Inventory.sugarInventory);
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(Inventory.NewPitcher.PitcherList[i]);
-            }
-                Console.ReadLine();
+            dailyPurchase.NewPitcher.Pour10Cups();
+        }
+        public void GetTodaysCustomers()
+        {
+            todaysCustomers.GetCustomerList(todaysWeather);
         }
     }
 }

@@ -8,63 +8,89 @@ namespace LemonadeStand
 {
     class CustomerList
     {
-        Weather todaysWeather = new Weather();
-        Customer newCustomer = new Customer();
 
-        public List<int> GetCustomerList()
+        public List<Customer> GetCustomerList(Weather todaysWeather)
         {
-            List<int> todaysCustomers = new List<int>();
+            List<Customer> todaysCustomers = new List<Customer>();
 
             switch (todaysWeather.currentWeather)
             {
                 case "stormy but warm":
                     for (Int32 i = 0; i < 150;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 case "stormy and cold":
                     for (Int32 i = 0; i < 100;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 case "cloudy and cold":
                     for (Int32 i = 0; i < 200;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 case "cloudy and warm":
                     for (Int32 i = 0; i < 250;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 case "sunny and cool":
                     for (Int32 i = 0; i < 300;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 case "sunny and warm":
                     for (Int32 i = 0; i < 350;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
                 default:
                     for (Int32 i = 0; i < 250;)
                     {
-                        todaysCustomers.Add(newCustomer.customerType());
+                        Customer newCustomer = new Customer();
+
+                        todaysCustomers.Add(newCustomer);
                         i++;
                     }
+                    Console.WriteLine(todaysCustomers.Count);
+                    Console.ReadLine();
                     break;
             }
             return todaysCustomers;

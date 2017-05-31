@@ -24,7 +24,7 @@ namespace LemonadeStand
         }
         public void ChoseCupsOfSugarAmount()
         {
-            Console.WriteLine("how many lemons per pitcher for today? Enter a number.");
+            Console.WriteLine("how many cups of sugar per pitcher for today? Enter a number.");
             numberOfCupsOfSugar = Convert.ToInt32(Console.ReadLine());
         }
         public void ChoseNumberOfIceCubes()
