@@ -8,19 +8,32 @@ namespace LemonadeStand
 {
     class NewSugar
     {
-        public int BoughtSugar;
-        public double sugarPrice;
+        public int boughtSugar;
+        public static double sugarPrice;
         public int GetSugar()
         {
-            Console.WriteLine("How many Cups Of Sugar do you want today? Enter a number.");
-            BoughtSugar = Convert.ToInt32(Console.ReadLine());
-            sugarPrice = BoughtSugar * .67;
-            Console.WriteLine("You bought " + BoughtSugar + " cups of sugar for $" + sugarPrice);
-            return BoughtSugar;
+            Console.WriteLine("How many Cups Of Sugar do you want today? Each cup of sugar is $0.67. Enter the number of cups you want to buy today.");
+            boughtSugar = Convert.ToInt32(Console.ReadLine());
+            sugarPrice = boughtSugar * .67;
+            if (sugarPrice < TotalInventory.budget)
+            {
+                Console.WriteLine("You bought " + boughtSugar + " cups for $" + sugarPrice);
+                return boughtSugar;
+            }
+            else if (sugarPrice > TotalInventory.budget)
+            {
+                Console.WriteLine("You do not have enough to buy that many cups! try again.");
+                return GetSugar();
+            }
+            else
+            {
+                Console.WriteLine("You bought " + boughtSugar + " cups for $" + sugarPrice);
+                return boughtSugar;
+            }
         }
         public double GetPriceOfSugar()
         {
-            sugarPrice = BoughtSugar * .67;
+            sugarPrice = boughtSugar * .67;
             return sugarPrice;
         }
     }

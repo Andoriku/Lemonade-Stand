@@ -21,10 +21,13 @@ namespace LemonadeStand
         {
             dailyPurchase.DefineDailyPurchase();
             dailyPurchase.GetNewCupInventory();
+            dailyPurchase.GetNewBudget(NewCups.cupPrice);
             dailyPurchase.GetNewLemonInventory();
+            dailyPurchase.GetNewBudget(NewLemons.lemonPrice);
             dailyPurchase.GetNewIceInventory();
+            dailyPurchase.GetNewBudget(NewIce.iceCubePrice);
             dailyPurchase.GetNewSugarInventory();
-            dailyPurchase.GetNewBudget();
+            dailyPurchase.GetNewBudget(NewSugar.sugarPrice);
         }
         public void GetRecipe()
         {

@@ -9,14 +9,27 @@ namespace LemonadeStand
     class NewCups
     {
         public int BoughtCups;
-        public double cupPrice;
+        public static double cupPrice;
         public int GetCups()
         {
-            Console.WriteLine("How many Cups do you want today? Enter a number.");
+            Console.WriteLine("How many Cups do you want today? Each cup is $0.05. Enter the number of cups you want to buy today.");
             BoughtCups = Convert.ToInt32(Console.ReadLine());
             double cupPrice = BoughtCups * .05;
-            Console.WriteLine("You bought " + BoughtCups + " cups for $" + cupPrice);
-            return BoughtCups;
+            if (cupPrice < TotalInventory.budget)
+            {
+                Console.WriteLine("You bought " + BoughtCups + " cups for $" + cupPrice);
+                return BoughtCups;
+            }
+            else if (cupPrice > TotalInventory.budget)
+                    {
+                Console.WriteLine("You do not have enough to buy that many cups! try again.");
+                return GetCups();
+            }
+            else
+            {
+                Console.WriteLine("You bought " + BoughtCups + " cups for $" + cupPrice);
+                return BoughtCups;
+            }
         }
         public double GetPriceOfCups()
         {

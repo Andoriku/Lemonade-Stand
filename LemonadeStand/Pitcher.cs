@@ -32,6 +32,13 @@ namespace LemonadeStand
             Console.WriteLine("how many ice cubes per cup for today? Enter a number.");
             numberOfIceCubes = Convert.ToInt32(Console.ReadLine()) * 10;
         }
+        public double GetCupPrice()
+        {
+            Console.WriteLine("How much would you like to sell each cup for?");
+            double salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+            Console.WriteLine("Each cup of lemonade will be sold today for $" + salePrice + ".");
+            return salePrice;
+        }
         public void Pour10Cups()
         {
           PitcherList = pitcherCups.Newlist();

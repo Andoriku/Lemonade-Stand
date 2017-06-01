@@ -27,7 +27,12 @@ namespace LemonadeStand
             else if (customerProfile == 2)
             {
                 customerLemonPreference = 3;
-
+                customerSugarPreference = 4;
+            }
+            else if (customerProfile == 3)
+            {
+                customerLemonPreference = 3;
+                customerSugarPreference = 4;
             }
         }
         public void customerType()

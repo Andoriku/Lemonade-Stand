@@ -8,19 +8,32 @@ namespace LemonadeStand
 {
     class NewLemons
     {
-        public int BoughtLemons;
-        public double lemonPrice;
+        public int boughtLemons;
+        public static double lemonPrice;
         public int GetLemons()
         {
-            Console.WriteLine("How many Lemons do you want today? Enter a number.");
-            BoughtLemons = Convert.ToInt32(Console.ReadLine());
-            double lemonPrice = BoughtLemons * .65;
-            Console.WriteLine("You bought " + BoughtLemons + " lemons for $" + lemonPrice);
-            return BoughtLemons;
+            Console.WriteLine("How many Lemons do you want today? Each lemon is $0.65. Enter the number of lemons you want to buy today.");
+            boughtLemons = Convert.ToInt32(Console.ReadLine());
+            double lemonPrice = boughtLemons * .65;
+            if (lemonPrice < TotalInventory.budget)
+            {
+                Console.WriteLine("You bought " + boughtLemons + " cups for $" + lemonPrice);
+                return boughtLemons;
+            }
+            else if (lemonPrice > TotalInventory.budget)
+            {
+                Console.WriteLine("You do not have enough to buy that many cups! try again.");
+                return GetLemons();
+            }
+            else
+            {
+                Console.WriteLine("You bought " + boughtLemons + " cups for $" + lemonPrice);
+                return boughtLemons;
+            }
         }
         public double GetPriceOfLeomons()
         {
-            lemonPrice = BoughtLemons * .65;
+            lemonPrice = boughtLemons * .65;
             return lemonPrice;
         }
     }

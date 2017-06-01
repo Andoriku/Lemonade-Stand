@@ -41,7 +41,7 @@ namespace LemonadeStand
         public void RunGame()
 
         {
-            TotalInventory totalInventory = new TotalInventory();
+            
             Player player1 = new Player();
             player1.MakePlayerName();
             //loop for each round

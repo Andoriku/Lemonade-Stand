@@ -63,13 +63,54 @@ namespace LemonadeStand
             Console.WriteLine("You have " + totalInventory.iceCubeInventory + " ice cubes.");
             return totalInventory.iceCubeInventory;
         }
-        public double GetNewBudget()
+        public double GetNewBudget(double price)
         {
-            totalInventory.budget -= (cupPrice + lemonPrice + sugarPrice + iceCubePrice);
-            Math.Round(totalInventory.budget, 2);
-            Console.WriteLine("you have $" + totalInventory.budget + " left.");
-            Console.ReadLine();
-            return totalInventory.budget;
+            if (price < TotalInventory.budget)
+            {
+                TotalInventory.budget -= (price);
+                Math.Round(TotalInventory.budget, 2);
+                Console.WriteLine("you have $" + TotalInventory.budget + " left.");
+                Console.ReadLine();
+                return TotalInventory.budget;
+            }
+            else if (price > TotalInventory.budget)
+            {
+                Console.WriteLine("You dont have enough funds left!");
+                Console.ReadLine();
+                if (price == cupPrice)
+                {
+                    boughtCups = 0;                    
+                    NewCups.GetCups();
+                    NewCups.GetPriceOfCups();
+                    double newCupPrice = NewCups.cupPrice;
+                    GetNewBudget(newCupPrice);
+                }
+                else if (price == sugarPrice)
+                {
+                    boughtSugar = 0;
+                   NewSugar.GetSugar();
+                    NewSugar.GetPriceOfSugar();
+                    double newSugarPrice = NewSugar.sugarPrice;
+                    GetNewBudget(newSugarPrice);
+                }
+                else if (price == lemonPrice)
+                {
+                    boughtLemons = 0;
+                    NewLemons.GetLemons();
+                    NewLemons.GetPriceOfLeomons();
+                    double newLemonPrice = NewLemons.lemonPrice;
+                    GetNewBudget(newLemonPrice);
+                }
+                else if (price == iceCubePrice)
+                {
+                    boughtIceCubes = 0;
+                    NewIce.GetIceCubes();
+                    NewIce.GetPriceOfIceCubes();
+                    double newIceCubePrice = NewIce.iceCubePrice;
+                    GetNewBudget(newIceCubePrice);
+                }
+            }
+            return TotalInventory.budget;
         }
         public void GetPitcher()
         {
@@ -84,7 +125,8 @@ namespace LemonadeStand
             NewPitcher.ChoseNumberOfIceCubes();
             double recipeIce = NewPitcher.numberOfIceCubes;
             totalInventory.iceCubeInventory -= recipeIce;
-  
+
+            NewPitcher.GetCupPrice();
         }
 
     }

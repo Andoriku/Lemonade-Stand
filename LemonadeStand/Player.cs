@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Player
     {
+        TotalInventory totalInventory = new TotalInventory();
         public string playerName;
 
         public string MakePlayerName()
