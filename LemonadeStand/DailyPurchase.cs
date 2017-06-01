@@ -8,11 +8,11 @@ namespace LemonadeStand
 {
     public class DailyPurchase
     {
-        TotalInventory totalInventory = new TotalInventory();
-        NewCups NewCups = new NewCups();
-        NewLemons NewLemons = new NewLemons();
+        TotalInventory totalInventory;
+        NewCups newCups;
+        NewLemons newLemons;
         NewIce NewIce = new NewIce();
-        NewSugar NewSugar = new NewSugar();
+        NewSugar newSugar;
         public Pitcher NewPitcher = new Pitcher();
 
         public int boughtCups;
@@ -24,20 +24,13 @@ namespace LemonadeStand
         public double iceCubePrice;
         public int boughtIceCubes;
 
-        public DailyPurchase()
+        public DailyPurchase(TotalInventory totalInventory)
         {
+            this.totalInventory = totalInventory;
+            newLemons = new NewLemons(totalInventory);
+            newCups = new NewCups(totalInventory);
+            newSugar = new NewSugar(totalInventory);
 
-        }
-        public void DefineDailyPurchase()
-        {
-            boughtCups = NewCups.GetCups();
-            cupPrice = NewCups.GetPriceOfCups();
-            boughtLemons = NewLemons.GetLemons();
-            lemonPrice = NewLemons.GetPriceOfLeomons();
-            boughtSugar = NewSugar.GetSugar();
-            sugarPrice = NewSugar.GetPriceOfSugar();
-            boughtIceCubes = NewIce.GetIceCubes();
-            iceCubePrice = NewIce.GetPriceOfIceCubes();
         }
         public int GetNewCupInventory()
         {
@@ -65,39 +58,39 @@ namespace LemonadeStand
         }
         public double GetNewBudget(double price)
         {
-            if (price < TotalInventory.budget)
+            if (price < totalInventory.budget)
             {
-                TotalInventory.budget -= (price);
-                Math.Round(TotalInventory.budget, 2);
-                Console.WriteLine("you have $" + TotalInventory.budget + " left.");
+                totalInventory.budget -= (price);
+                Math.Round(totalInventory.budget, 2);
+                Console.WriteLine("you have $" + totalInventory.budget + " left.");
                 Console.ReadLine();
-                return TotalInventory.budget;
+                return totalInventory.budget;
             }
-            else if (price > TotalInventory.budget)
+            else if (price > totalInventory.budget)
             {
                 Console.WriteLine("You dont have enough funds left!");
                 Console.ReadLine();
                 if (price == cupPrice)
                 {
                     boughtCups = 0;                    
-                    NewCups.GetCups();
-                    NewCups.GetPriceOfCups();
+                    newCups.GetCups();
+                    newCups.GetPriceOfCups();
                     double newCupPrice = NewCups.cupPrice;
                     GetNewBudget(newCupPrice);
                 }
                 else if (price == sugarPrice)
                 {
                     boughtSugar = 0;
-                   NewSugar.GetSugar();
-                    NewSugar.GetPriceOfSugar();
+                   newSugar.GetSugar();
+                    newSugar.GetPriceOfSugar();
                     double newSugarPrice = NewSugar.sugarPrice;
                     GetNewBudget(newSugarPrice);
                 }
                 else if (price == lemonPrice)
                 {
                     boughtLemons = 0;
-                    NewLemons.GetLemons();
-                    NewLemons.GetPriceOfLeomons();
+                    newLemons.GetLemons();
+                    newLemons.GetPriceOfLeomons();
                     double newLemonPrice = NewLemons.lemonPrice;
                     GetNewBudget(newLemonPrice);
                 }
@@ -110,7 +103,40 @@ namespace LemonadeStand
                     GetNewBudget(newIceCubePrice);
                 }
             }
-            return TotalInventory.budget;
+            return totalInventory.budget;
+        }
+        public void GetTodaysCups()
+        {
+            boughtCups = newCups.GetCups();
+            cupPrice = newCups.GetPriceOfCups();
+            GetNewCupInventory();
+            GetNewBudget(cupPrice);
+        }
+        public void GetTodaysLemons()
+        {
+            boughtLemons = newLemons.GetLemons();
+            lemonPrice = newLemons.GetPriceOfLeomons();
+            GetNewLemonInventory();
+            GetNewBudget(lemonPrice);
+        }
+        public void GetTodaysCupsOfSugar()
+        {
+            boughtSugar = newSugar.GetSugar();
+            sugarPrice = newSugar.GetPriceOfSugar();
+            GetNewSugarInventory();
+            GetNewBudget(sugarPrice);
+        }
+        public void GetTodaysIce()
+        {
+            boughtIceCubes = NewIce.GetIceCubes();
+            iceCubePrice = NewIce.GetPriceOfIceCubes();
+            GetNewIceInventory();
+            GetNewBudget(iceCubePrice);
+        }
+        public void DisplayInventory()
+        {
+            Console.WriteLine("your Total Inventory: \n-Cups: " + totalInventory.cupInventory + "\n-Lemons: " + totalInventory.lemonInventory + "\n-Cups Of Sugar: " + totalInventory.sugarInventory + "\n-Ice Cubes: " + totalInventory.iceCubeInventory);
+            Console.ReadLine();
         }
         public void GetPitcher()
         {

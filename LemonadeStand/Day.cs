@@ -8,9 +8,15 @@ namespace LemonadeStand
 {
     public class Day
     {
-        DailyPurchase dailyPurchase = new DailyPurchase();
+        DailyPurchase dailyPurchase;
         Weather todaysWeather = new Weather();
         CustomerList todaysCustomers = new CustomerList();
+        Player player;
+        public Day(Player player)
+        {
+            this.player = player;
+            dailyPurchase = new DailyPurchase(player.totalInventory);
+        }
         public void GetTodaysWeather()
         {
             todaysWeather.GetCurrentWeather();
@@ -19,15 +25,11 @@ namespace LemonadeStand
 
         public void GetInventory()
         {
-            dailyPurchase.DefineDailyPurchase();
-            dailyPurchase.GetNewCupInventory();
-            dailyPurchase.GetNewBudget(NewCups.cupPrice);
-            dailyPurchase.GetNewLemonInventory();
-            dailyPurchase.GetNewBudget(NewLemons.lemonPrice);
-            dailyPurchase.GetNewIceInventory();
-            dailyPurchase.GetNewBudget(NewIce.iceCubePrice);
-            dailyPurchase.GetNewSugarInventory();
-            dailyPurchase.GetNewBudget(NewSugar.sugarPrice);
+            dailyPurchase.GetTodaysCups();
+            dailyPurchase.GetTodaysLemons();
+            dailyPurchase.GetTodaysCupsOfSugar();
+            dailyPurchase.GetTodaysIce();
+            dailyPurchase.DisplayInventory();
         }
         public void GetRecipe()
         {

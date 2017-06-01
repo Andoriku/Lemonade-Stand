@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Player
+    public class Player
     {
-        TotalInventory totalInventory = new TotalInventory();
+        public TotalInventory totalInventory = new TotalInventory();
         public string playerName;
 
         public string MakePlayerName()

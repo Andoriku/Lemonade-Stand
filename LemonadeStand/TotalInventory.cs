@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class TotalInventory
+    public class TotalInventory
     {
-        public static double budget = 40;
+        public double budget = 40;
         public int cupInventory = 0;
         public double lemonInventory = 0;
         public double sugarInventory = 0;

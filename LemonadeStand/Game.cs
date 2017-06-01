@@ -45,7 +45,7 @@ namespace LemonadeStand
             Player player1 = new Player();
             player1.MakePlayerName();
             //loop for each round
-            Day round = new Day();
+            Day round = new Day(player1);
             round.GetTodaysWeather();
             round.GetInventory();
             round.GetRecipe();
