@@ -15,6 +15,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("What is your name? Enter name below");
             playerName = Console.ReadLine();
+            Console.Clear();
             return playerName;
         }
     }

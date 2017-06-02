@@ -17,7 +17,7 @@ namespace LemonadeStand
         }
         public int GetLemons()
         {
-            Console.WriteLine("How many Lemons do you want today? Each lemon is $0.65. Enter the number of lemons you want to buy today.");
+            Console.WriteLine("How many Lemons do you want to buy today? Each lemon is $0.65. Enter the number of lemons you want to buy today.");
             boughtLemons = Convert.ToInt32(Console.ReadLine());
             double lemonPrice = boughtLemons * .65;
             if (lemonPrice < totalInventory.budget)

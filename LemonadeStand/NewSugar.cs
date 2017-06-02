@@ -17,7 +17,7 @@ namespace LemonadeStand
         }
         public int GetSugar()
         {
-            Console.WriteLine("How many Cups Of Sugar do you want today? Each cup of sugar is $0.67. Enter the number of cups you want to buy today.");
+            Console.WriteLine("How many Cups Of Sugar do you want to buy today? Each cup of sugar is $0.67. Enter the number of cups you want to buy today.");
             boughtSugar = Convert.ToInt32(Console.ReadLine());
             sugarPrice = boughtSugar * .67;
             if (sugarPrice < totalInventory.budget)

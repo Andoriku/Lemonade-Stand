@@ -9,13 +9,13 @@ namespace LemonadeStand
     class Customer
     {
         private int customerProfile;
-        public int  customerLemonPreference;
+        public int customerLemonPreference;
         public int customerSugarPreference;
         public Customer()
-            {
+        {
             customerType();
             DefineCustomerPref(customerProfile);
-            }
+        }
 
         public void DefineCustomerPref(int customerProfile)
         {
@@ -55,6 +55,6 @@ namespace LemonadeStand
                     break;
             }
         }
-        
+
     }
 }

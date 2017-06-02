@@ -14,18 +14,22 @@ namespace LemonadeStand
         public List<int> PitcherList;
 
 
-        CustomerCups pitcherCups = new CustomerCups();
+        PitcherCups pitcherList;
 
+        public Pitcher(List<int> PitcherList)
+        {
+            pitcherList = new PitcherCups();
+        }
         public void ChoseLemonAmount()
         {
             Console.WriteLine("how many lemons per pitcher for today? Enter a number.");
-            numberOfLemons = Convert.ToInt32(Console.ReadLine());
-            
+            numberOfLemons = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+
         }
         public void ChoseCupsOfSugarAmount()
         {
             Console.WriteLine("how many cups of sugar per pitcher for today? Enter a number.");
-            numberOfCupsOfSugar = Convert.ToInt32(Console.ReadLine());
+            numberOfCupsOfSugar = Math.Round(Convert.ToDouble(Console.ReadLine()), 2); ;
         }
         public void ChoseNumberOfIceCubes()
         {
@@ -36,17 +40,17 @@ namespace LemonadeStand
         {
             Console.WriteLine("How much would you like to sell each cup for?");
             double salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+            Console.Clear();
             Console.WriteLine("Each cup of lemonade will be sold today for $" + salePrice + ".");
             return salePrice;
         }
         public void Pour10Cups()
         {
-          PitcherList = pitcherCups.Newlist();
+            PitcherList = pitcherList.Newlist();
         }
-        public void SellOneCup()
-        { 
-
-            PitcherList.Remove(0);
+        public void GetPitcherCupCount()
+        {
+            pitcherList.Count();
         }
 
     }

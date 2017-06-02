@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Weather
+    public class Weather
     {
         public string currentWeather;
 
@@ -21,10 +21,10 @@ namespace LemonadeStand
             switch (weather)
             {
                 case 1:
-                    currentWeather = "stormy but warm";                  
+                    currentWeather = "stormy but warm";
                     return currentWeather;
                 case 2:
-                    currentWeather = "stormy and cold";                    
+                    currentWeather = "stormy and cold";
                     return currentWeather;
                 case 3:
                     currentWeather = "cloudy and cold";
@@ -40,12 +40,13 @@ namespace LemonadeStand
                     return currentWeather;
                 default:
                     currentWeather = "sunny and hot";
-                        return currentWeather;
+                    return currentWeather;
             }
         }
-      public void DipslayCurrentWeather(string currentWeather)
+        public void DipslayCurrentWeather(string currentWeather)
         {
-            Console.WriteLine("todays weather is " + currentWeather + "!");
+            Console.WriteLine("You look outside the window and see today's weather is " + currentWeather + "!");
+            Console.ReadLine();
         }
 
     }

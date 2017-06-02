@@ -16,6 +16,7 @@ namespace LemonadeStand
         {
             this.player = player;
             dailyPurchase = new DailyPurchase(player.totalInventory);
+
         }
         public void GetTodaysWeather()
         {
@@ -34,14 +35,33 @@ namespace LemonadeStand
         public void GetRecipe()
         {
             dailyPurchase.GetPitcher();
+            Console.WriteLine("You open up you doors to " + player.playerName + "'s Lemonade Shop and flip the sign to 'OPEN'.");
+            dailyPurchase.DisplayCurrentInventory();
+            
         }
         public void MakeNewPitcher()
         {
-            dailyPurchase.NewPitcher.Pour10Cups();
+            //if (newPitcher.PitcherList?[0] == null)
+            //{
+                dailyPurchase.newPitcher.Pour10Cups();
+           // }
         }
-        public void GetTodaysCustomers()
+       public void CalculateSales()
         {
-            todaysCustomers.GetCustomerList(todaysWeather);
+           MakeNewPitcher();
+           List<Customer> customerList = todaysCustomers.GetCustomerList(todaysWeather);
+            foreach (object customer in customerList)
+            {
+               Random random = new Random();
+                int choice = random.Next(0, 100);
+                if (choice > 49)
+                {
+                    dailyPurchase.SellOneCup();
+                    Console.WriteLine(dailyPurchase.newPitcher.PitcherList.Count());
+                    Console.WriteLine("Lemonade sold!");
+                }
+            }
+            Console.ReadLine();
         }
     }
 }
