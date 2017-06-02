@@ -39,25 +39,18 @@ namespace LemonadeStand
             dailyPurchase.DisplayCurrentInventory();
             
         }
-        public void MakeNewPitcher()
-        {
-            //if (newPitcher.PitcherList?[0] == null)
-            //{
-                dailyPurchase.newPitcher.Pour10Cups();
-           // }
-        }
+       
        public void CalculateSales()
         {
-           MakeNewPitcher();
            List<Customer> customerList = todaysCustomers.GetCustomerList(todaysWeather);
             foreach (object customer in customerList)
             {
                Random random = new Random();
                 int choice = random.Next(0, 100);
-                if (choice > 49)
+                if (choice > 29)
                 {
                     dailyPurchase.SellOneCup();
-                    Console.WriteLine(dailyPurchase.newPitcher.PitcherList.Count());
+                    Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
                     Console.WriteLine("Lemonade sold!");
                 }
             }

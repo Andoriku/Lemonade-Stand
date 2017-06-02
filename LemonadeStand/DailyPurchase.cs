@@ -23,7 +23,7 @@ namespace LemonadeStand
         public int boughtSugar;
         public double iceCubePrice;
         public int boughtIceCubes;
-        private List<int> pitcherCups;
+        
         
 
         public DailyPurchase(TotalInventory totalInventory)
@@ -32,8 +32,8 @@ namespace LemonadeStand
             newLemons = new NewLemons(totalInventory);
             newCups = new NewCups(totalInventory);
             newSugar = new NewSugar(totalInventory);
-            newPitcher = new Pitcher(pitcherCups);
-            pitcherCups = newPitcher.PitcherList;
+            newPitcher = new Pitcher();
+           
 
         }
         public int GetNewCupInventory()
@@ -145,6 +145,7 @@ namespace LemonadeStand
         }
         public void GetPitcher()
         {
+           
             newPitcher.ChoseCupsOfSugarAmount();
             double recipeSugar = newPitcher.numberOfCupsOfSugar;
             totalInventory.sugarInventory -= recipeSugar;
@@ -168,7 +169,17 @@ namespace LemonadeStand
         }
         public void SellOneCup()
         {
-            newPitcher.PitcherList.RemoveAt(0);
+            if (newPitcher.pitcherCups == null || newPitcher.pitcherCups.Count == 0)
+            {
+                newPitcher = new Pitcher();
+                DisplayCurrentInventory();
+                Console.ReadLine();
+                SellOneCup();
+            }
+            else
+            {
+                newPitcher.pitcherCups.RemoveAt(0);
+            }
         }
     }
 }
