@@ -19,12 +19,19 @@ namespace LemonadeStand
         public double cupPrice;
         public double lemonPrice;
         public int boughtLemons;
+        public double recipeLemons;
         public double sugarPrice;
         public int boughtSugar;
+        public double recipeSugar;
         public double iceCubePrice;
         public int boughtIceCubes;
-        
-        
+        public double recipeIce;
+        public double salePrice;
+
+
+
+
+
 
         public DailyPurchase(TotalInventory totalInventory)
         {
@@ -147,18 +154,18 @@ namespace LemonadeStand
         {
            
             newPitcher.ChoseCupsOfSugarAmount();
-            double recipeSugar = newPitcher.numberOfCupsOfSugar;
+            recipeSugar = newPitcher.numberOfCupsOfSugar;
             totalInventory.sugarInventory -= recipeSugar;
 
             newPitcher.ChoseLemonAmount();
-            double recipeLemons = newPitcher.numberOfLemons;
+            recipeLemons = newPitcher.numberOfLemons;
             totalInventory.lemonInventory -= recipeLemons;
             
             newPitcher.ChoseNumberOfIceCubes();
-            double recipeIce = newPitcher.numberOfIceCubes;
+            recipeIce = newPitcher.numberOfIceCubes;
             totalInventory.iceCubeInventory -= recipeIce;
             
-            newPitcher.GetCupPrice();
+            salePrice = newPitcher.GetCupPrice();
         }
         public void DisplayCurrentInventory()
         {
@@ -172,6 +179,7 @@ namespace LemonadeStand
             if (newPitcher.pitcherCups == null || newPitcher.pitcherCups.Count == 0)
             {
                 newPitcher = new Pitcher();
+                GetPitcher();
                 DisplayCurrentInventory();
                 Console.ReadLine();
                 SellOneCup();

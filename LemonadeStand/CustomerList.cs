@@ -8,18 +8,21 @@ namespace LemonadeStand
 {
     class CustomerList
     {
-
-        public List<Customer> GetCustomerList(Weather todaysWeather)
+        List<Customer> todaysCustomers;
+        Customer newCustomer;
+        public CustomerList()
         {
-            List<Customer> todaysCustomers = new List<Customer>();
-
+            todaysCustomers = new List<Customer>();
+            newCustomer = new Customer();
+        }
+        public List<Customer> GetCustomerList(Weather todaysWeather)
+        {   
             switch (todaysWeather.currentWeather)
             {
                 case "stormy but warm":
                     for (Int32 i = 0; i < 150;)
                     {
-                        Customer newCustomer = new Customer();
-
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -29,8 +32,8 @@ namespace LemonadeStand
                 case "stormy and cold":
                     for (Int32 i = 0; i < 100;)
                     {
-                        Customer newCustomer = new Customer();
 
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -40,8 +43,8 @@ namespace LemonadeStand
                 case "cloudy and cold":
                     for (Int32 i = 0; i < 200;)
                     {
-                        Customer newCustomer = new Customer();
 
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -51,8 +54,8 @@ namespace LemonadeStand
                 case "cloudy and warm":
                     for (Int32 i = 0; i < 250;)
                     {
-                        Customer newCustomer = new Customer();
 
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -62,8 +65,8 @@ namespace LemonadeStand
                 case "sunny and cool":
                     for (Int32 i = 0; i < 300;)
                     {
-                        Customer newCustomer = new Customer();
 
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -73,8 +76,7 @@ namespace LemonadeStand
                 case "sunny and warm":
                     for (Int32 i = 0; i < 350;)
                     {
-                        Customer newCustomer = new Customer();
-
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }
@@ -84,8 +86,7 @@ namespace LemonadeStand
                 default:
                     for (Int32 i = 0; i < 250;)
                     {
-                        Customer newCustomer = new Customer();
-
+                        newCustomer = new Customer();
                         todaysCustomers.Add(newCustomer);
                         i++;
                     }

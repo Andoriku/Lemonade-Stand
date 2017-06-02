@@ -37,22 +37,96 @@ namespace LemonadeStand
             dailyPurchase.GetPitcher();
             Console.WriteLine("You open up you doors to " + player.playerName + "'s Lemonade Shop and flip the sign to 'OPEN'.");
             dailyPurchase.DisplayCurrentInventory();
-            
+
         }
-       
-       public void CalculateSales()
+
+        public void CalculateSales()
         {
-           List<Customer> customerList = todaysCustomers.GetCustomerList(todaysWeather);
+
+
+
+            List<Customer> customerList = todaysCustomers.GetCustomerList(todaysWeather);
+            int i = 0;
             foreach (object customer in customerList)
             {
-               Random random = new Random();
-                int choice = random.Next(0, 100);
-                if (choice > 29)
+                int choice;
+                Random random = new Random();
+                if (customerList[i].customerProfile == 1)
                 {
-                    dailyPurchase.SellOneCup();
-                    Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
-                    Console.WriteLine("Lemonade sold!");
+                    if (customerList[i].customerLemonPreference == dailyPurchase.recipeLemons && customerList[i].customerSugarPreference == dailyPurchase.recipeSugar)
+                    {
+                        dailyPurchase.SellOneCup();
+                        Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                        Console.WriteLine("Lemonade sold!");
+                        i++;
+                    }
+                    else
+                    {
+                        choice = random.Next(0, 20);
+                        if (choice > 15 && dailyPurchase.salePrice <= customerList[i].customerPricePreference)
+                        {
+                            dailyPurchase.SellOneCup();
+                            Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                            Console.WriteLine("Lemonade sold!");
+                            i++;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
                 }
+                else if (customerList[i].customerProfile == 2)
+                {
+                    if (customerList[i].customerLemonPreference == dailyPurchase.recipeLemons && customerList[i].customerSugarPreference == dailyPurchase.recipeSugar)
+                    {
+                        dailyPurchase.SellOneCup();
+                        Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                        Console.WriteLine("Lemonade sold!");
+                        i++;
+                    }
+                    else
+                    {
+                        choice = random.Next(0, 50);
+                        if (choice > 25 && dailyPurchase.salePrice <= customerList[i].customerPricePreference)
+                        {
+                            dailyPurchase.SellOneCup();
+                            Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                            Console.WriteLine("Lemonade sold!");
+                            i++;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+                else if (customerList[i].customerProfile == 3)
+                {
+                    if (customerList[i].customerLemonPreference == dailyPurchase.recipeLemons && customerList[i].customerSugarPreference == dailyPurchase.recipeSugar)
+                    {
+                        dailyPurchase.SellOneCup();
+                        Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                        Console.WriteLine("Lemonade sold!");
+                        i++;
+                    }
+                    else
+                    {
+                        choice = random.Next(0, 100);
+                        if (choice > 20 && dailyPurchase.salePrice <= customerList[i].customerPricePreference)
+                        {
+                            dailyPurchase.SellOneCup();
+                            Console.WriteLine(dailyPurchase.newPitcher.pitcherCups.Count());
+                            Console.WriteLine("Lemonade sold!");
+                            i++;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+
             }
             Console.ReadLine();
         }

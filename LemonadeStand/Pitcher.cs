@@ -11,6 +11,7 @@ namespace LemonadeStand
         public double numberOfLemons;
         public double numberOfCupsOfSugar;
         public int numberOfIceCubes;
+        public double salePrice;
         public List<int> pitcherCups = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
        
@@ -38,7 +39,7 @@ namespace LemonadeStand
         public double GetCupPrice()
         {
             Console.WriteLine("How much would you like to sell each cup for?");
-            double salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+            salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
             Console.Clear();
             Console.WriteLine("Each cup of lemonade will be sold today for $" + salePrice + ".");
             return salePrice;

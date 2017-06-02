@@ -8,9 +8,10 @@ namespace LemonadeStand
 {
     class Customer
     {
-        private int customerProfile;
+        public int customerProfile;
         public int customerLemonPreference;
         public int customerSugarPreference;
+        public double customerPricePreference;
         public Customer()
         {
             customerType();
@@ -21,40 +22,35 @@ namespace LemonadeStand
         {
             if (customerProfile == 1)
             {
+                Random randomPrice = new Random();
                 customerLemonPreference = 2;
                 customerSugarPreference = 1;
+                customerPricePreference = Math.Round(getRandomDouble(.50,3.50),2);
             }
             else if (customerProfile == 2)
             {
-                customerLemonPreference = 3;
-                customerSugarPreference = 4;
+                customerLemonPreference = 2;
+                customerSugarPreference = 2;
+                customerPricePreference = Math.Round(getRandomDouble(.50, 3.50), 2);
             }
             else if (customerProfile == 3)
             {
                 customerLemonPreference = 3;
-                customerSugarPreference = 4;
+                customerSugarPreference = 2;
+                customerPricePreference = Math.Round(getRandomDouble(.50, 3.50), 2);
             }
         }
         public void customerType()
         {
             Random random = new Random();
-            int customer = random.Next(1, 3);
-            switch (customer)
-            {
-                case 1:
-                    customerProfile = 1;
-                    break;
-                case 2:
-                    customerProfile = 2;
-                    break;
-                case 3:
-                    customerProfile = 3;
-                    break;
-                default:
-                    customerProfile = 1;
-                    break;
-            }
-        }
+            customerProfile = random.Next(1, 4);
 
+        }
+        public double getRandomDouble(double min, double max)
+        {
+            Random random = new Random();
+            return random.NextDouble() * (max - min) + min;
+        }
     }
+
 }
