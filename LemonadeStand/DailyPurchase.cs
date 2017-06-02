@@ -14,7 +14,7 @@ namespace LemonadeStand
         NewIce NewIce = new NewIce();
         NewSugar newSugar;
         public Pitcher newPitcher;
-
+        public double todaysNetSales;
         public int boughtCups;
         public double cupPrice;
         public double lemonPrice;
@@ -174,6 +174,7 @@ namespace LemonadeStand
             Console.WriteLine("- Your remaining Lemons: " + totalInventory.lemonInventory);
             Console.WriteLine("- Your remaining Ice Cubes " + totalInventory.iceCubeInventory);
         }
+        
         public void SellOneCup()
         {
             if (newPitcher.pitcherCups == null || newPitcher.pitcherCups.Count == 0)
@@ -187,7 +188,16 @@ namespace LemonadeStand
             else
             {
                 newPitcher.pitcherCups.RemoveAt(0);
+                totalInventory.budget += salePrice;
+                todaysNetSales += salePrice;
+                
             }
+        }
+        public void DisplaySales()
+        {
+            Console.WriteLine("Your total sales for today were: $" + todaysNetSales);
+            Console.WriteLine("Your new Budget after sales is: $" + totalInventory.budget);
+            Console.ReadLine();
         }
     }
 }

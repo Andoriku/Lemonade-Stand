@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class TotalInventory
     {
-        public double budget = 40;
+        public double budget = 50;
         public int cupInventory = 0;
         public double lemonInventory = 0;
         public double sugarInventory = 0;

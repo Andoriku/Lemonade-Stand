@@ -49,11 +49,13 @@ namespace LemonadeStand
             round.GetRecipe();
             
             round.CalculateSales();
+            round.DisplayTodaysSales();
+            
         }
         private void ReadRules()
         {
             string selection;
-            Console.WriteLine("This is Lemonade Stand. You own a lemonade stand and will try to get as much profit as you can in 7 days. You will start with $40 and buy supplies, make lemonade, and set prices to try and make a profit. you will first: \n-Buy your ingrediants for the day (you keep unused ingrediants from the day before) \n-Set your recipe (be sure to look at the weather!) \n-Sell all day! \n-Repeat for 7 days \nAt the end of 7 day, your net sales are your score! to start type 'new' or 'back' to go to the main menu.");
+            Console.WriteLine("This is Lemonade Stand. You own a lemonade stand and will try to get as much profit as you can in 7 days. You will start with $50 and buy supplies, make lemonade, and set prices to try and make a profit. you will first: \n-Buy your ingrediants for the day (you keep unused ingrediants from the day before) \n-Set your recipe (be sure to look at the weather!) \n-Sell all day! \n-Repeat for 7 days \nAt the end of 7 day, your net sales are your score! to start type 'new' or 'back' to go to the main menu.");
             selection = Console.ReadLine();
             if (selection == "new")
             {
