@@ -28,7 +28,7 @@ namespace LemonadeStand
         public double recipeIce;
         public double salePrice;
         public bool lastPicther;
-
+        public double passedSales;
 
 
 
@@ -39,7 +39,8 @@ namespace LemonadeStand
             newLemons = new NewLemons(totalInventory);
             newCups = new NewCups(totalInventory);
             newSugar = new NewSugar(totalInventory);
-            newPitcher = new Pitcher();          
+            newPitcher = new Pitcher();
+            passedSales = todaysNetSales;         
         }
         public int GetNewCupInventory()
         {
@@ -245,6 +246,7 @@ else
         }
         public void SellOneCup()
         {
+            
             if (newPitcher.pitcherCups == null || newPitcher.pitcherCups.Count == 0)
             {
                 if (totalInventory.cupInventory < 10 || totalInventory.iceCubeInventory < 1 || totalInventory.lemonInventory < 1 || totalInventory.sugarInventory < 1)
@@ -266,7 +268,6 @@ else
                 newPitcher.pitcherCups.RemoveAt(0);
                 totalInventory.budget += salePrice;
                 todaysNetSales += salePrice;
-                
             }
         }
         public void DisplaySales()

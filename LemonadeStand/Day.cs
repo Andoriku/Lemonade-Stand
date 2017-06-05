@@ -12,11 +12,12 @@ namespace LemonadeStand
         Weather todaysWeather = new Weather();
         CustomerList todaysCustomers = new CustomerList();
         Player player;
+        public double dailyNetSales;
         public Day(Player player)
         {
             this.player = player;
             dailyPurchase = new DailyPurchase(player.totalInventory);
-
+            dailyNetSales = dailyPurchase.passedSales;
         }
         public void GetTodaysWeather()
         {
