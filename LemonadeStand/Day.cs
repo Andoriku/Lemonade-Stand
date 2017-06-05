@@ -45,24 +45,35 @@ namespace LemonadeStand
         }
         public void CalculateSales()
         {
+
+
             List<Customer> customerList = todaysCustomers.GetCustomerList(todaysWeather);
-
-            foreach (Customer customer in customerList)
+            do
             {
-                int choice;
-                Random random = new Random();
-                if (customer.customerProfile == 1)
+                foreach (Customer customer in customerList)
                 {
-                    if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
+                    int choice;
+                    Random random = new Random();
+                    if (customer.customerProfile == 1)
                     {
-                        dailyPurchase.SellOneCup();
-                        Console.WriteLine("Lemonade sold!");
-
+                        if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
+                        {
+                            dailyPurchase.SellOneCup();
+                            Console.WriteLine("Lemonade sold!");
+                        }
+                        else
+                        {
+                            choice = random.Next(0, 50);
+                            if (choice > 15 && dailyPurchase.salePrice <= customer.customerPricePreference)
+                            {
+                                dailyPurchase.SellOneCup();
+                                Console.WriteLine("Lemonade sold!");
+                            }
+                        }
                     }
-                    else
+                    else if (customer.customerProfile == 2)
                     {
-                        choice = random.Next(0, 20);
-                        if (choice > 9 && dailyPurchase.salePrice <= customer.customerPricePreference)
+                        if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
                         {
                             dailyPurchase.SellOneCup();
                             Console.WriteLine("Lemonade sold!");
@@ -70,22 +81,18 @@ namespace LemonadeStand
                         }
                         else
                         {
+                            choice = random.Next(0, 50);
+                            if (choice > 19 && dailyPurchase.salePrice <= customer.customerPricePreference)
+                            {
+                                dailyPurchase.SellOneCup();
+                                Console.WriteLine("Lemonade sold!");
 
+                            }
                         }
                     }
-                }
-                else if (customer.customerProfile == 2)
-                {
-                    if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
+                    else if (customer.customerProfile == 3)
                     {
-                        dailyPurchase.SellOneCup();
-                        Console.WriteLine("Lemonade sold!");
-
-                    }
-                    else
-                    {
-                        choice = random.Next(0, 50);
-                        if (choice > 19 && dailyPurchase.salePrice <= customer.customerPricePreference)
+                        if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
                         {
                             dailyPurchase.SellOneCup();
                             Console.WriteLine("Lemonade sold!");
@@ -93,36 +100,18 @@ namespace LemonadeStand
                         }
                         else
                         {
+                            choice = random.Next(0, 100);
+                            if (choice > 15 && dailyPurchase.salePrice <= customer.customerPricePreference)
+                            {
+                                dailyPurchase.SellOneCup();
+                                Console.WriteLine("Lemonade sold!");
 
+                            }
                         }
                     }
                 }
-                else if (customer.customerProfile == 3)
-                {
-                    if (customer.customerLemonPreference == dailyPurchase.recipeLemons && customer.customerSugarPreference == dailyPurchase.recipeSugar)
-                    {
-                        dailyPurchase.SellOneCup();
-                        Console.WriteLine("Lemonade sold!");
-
-                    }
-                    else
-                    {
-                        choice = random.Next(0, 100);
-                        if (choice > 25 && dailyPurchase.salePrice <= customer.customerPricePreference)
-                        {
-                            dailyPurchase.SellOneCup();
-                            Console.WriteLine("Lemonade sold!");
-
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                }
-
             }
-            Console.ReadLine();
+            while (dailyPurchase.lastPicther == true);
         }
     }
 

@@ -17,7 +17,7 @@ namespace LemonadeStand
         public string GetCurrentWeather()
         {
             Random random = new Random();
-            int weather = random.Next(1, 6);
+            int weather = random.Next(0, 6);
             switch (weather)
             {
                 case 1:

@@ -18,7 +18,15 @@ namespace LemonadeStand
         public int GetCups()
         {
             Console.WriteLine("How many Cups do you want to buy today? Each cup is $0.05. Enter the number of cups you want to buy today.");
-            BoughtCups = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                BoughtCups = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Oops, thats not a valid number! try again.");
+                GetCups();
+            }
             double cupPrice = BoughtCups * .05;
             if (cupPrice < totalInventory.budget)
             {

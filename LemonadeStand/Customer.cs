@@ -20,23 +20,23 @@ namespace LemonadeStand
 
         public void DefineCustomerPref(int customerProfile)
         {
+            Random random = new Random();
             if (customerProfile == 1)
             {
-                Random randomPrice = new Random();
-                customerLemonPreference = 2;
-                customerSugarPreference = 1;
+                customerLemonPreference = random.Next(1, 5);
+                customerSugarPreference = random.Next(1, 5);
                 customerPricePreference = Math.Round(getRandomDouble(.50,3.50),2);
             }
             else if (customerProfile == 2)
             {
-                customerLemonPreference = 2;
-                customerSugarPreference = 2;
+                customerLemonPreference = random.Next(1,4);
+                customerSugarPreference = random.Next(1, 4);
                 customerPricePreference = Math.Round(getRandomDouble(.50, 3.50), 2);
             }
             else if (customerProfile == 3)
             {
-                customerLemonPreference = 3;
-                customerSugarPreference = 2;
+                customerLemonPreference = random.Next(1, 6);
+                customerSugarPreference = random.Next(1, 6);
                 customerPricePreference = Math.Round(getRandomDouble(.50, 3.50), 2);
             }
         }

@@ -42,15 +42,16 @@ namespace LemonadeStand
         {
             Player player1 = new Player();
             player1.MakePlayerName();
-            //loop for each round
-            Day round = new Day(player1);
-            round.GetTodaysWeather();
-            round.GetInventory();
-            round.GetRecipe();
-            
-            round.CalculateSales();
-            round.DisplayTodaysSales();
-            
+            for (int i = 0; i <= 7; i++)
+            {
+                Day round = new Day(player1);
+                round.GetTodaysWeather();
+                round.GetInventory();
+                round.GetRecipe();
+
+                round.CalculateSales();
+                round.DisplayTodaysSales();
+            }
         }
         private void ReadRules()
         {

@@ -23,25 +23,54 @@ namespace LemonadeStand
         public void ChoseLemonAmount()
         {
             Console.WriteLine("how many lemons per pitcher for today? Enter a number.");
-            numberOfLemons = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
-
+            try
+            {
+                numberOfLemons = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+            }
+            catch
+            {
+                Console.WriteLine("Oops! Looks Like you need to type a number for the amount");
+                ChoseLemonAmount();
+            }
         }
         public void ChoseCupsOfSugarAmount()
         {
             Console.WriteLine("how many cups of sugar per pitcher for today? Enter a number.");
-            numberOfCupsOfSugar = Math.Round(Convert.ToDouble(Console.ReadLine()), 2); ;
-        }
+            try { numberOfCupsOfSugar = Math.Round(Convert.ToDouble(Console.ReadLine()), 2); ;
+            
+             }
+            catch
+            {
+                Console.WriteLine("Oops! Looks Like you need to type a number for the amount");
+                ChoseCupsOfSugarAmount();
+    }
+}
         public void ChoseNumberOfIceCubes()
         {
             Console.WriteLine("how many ice cubes per cup for today? Enter a number.");
-            numberOfIceCubes = Convert.ToInt32(Console.ReadLine()) * 10;
+            try { numberOfIceCubes = Convert.ToInt32(Console.ReadLine()) * 10;
+            }
+            catch
+            {
+                Console.WriteLine("Oops! Looks Like you need to type a number for the amount");
+                ChoseNumberOfIceCubes();
+            }
         }
         public double GetCupPrice()
         {
             Console.WriteLine("How much would you like to sell each cup for?");
-            salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
-            Console.Clear();
+            try
+            {
+                salePrice = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+            }
+            catch
+            {
+                Console.WriteLine("Oops! You didn't type in a valid price, try again.");
+                GetCupPrice();
+            }
             Console.WriteLine("Each cup of lemonade will be sold today for $" + salePrice + ".");
+            Console.ReadLine();
+            Console.Clear();
             return salePrice;
         }
 

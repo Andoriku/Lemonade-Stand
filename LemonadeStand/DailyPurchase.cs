@@ -27,7 +27,7 @@ namespace LemonadeStand
         public int boughtIceCubes;
         public double recipeIce;
         public double salePrice;
-
+        public bool lastPicther;
 
 
 
@@ -39,9 +39,7 @@ namespace LemonadeStand
             newLemons = new NewLemons(totalInventory);
             newCups = new NewCups(totalInventory);
             newSugar = new NewSugar(totalInventory);
-            newPitcher = new Pitcher();
-           
-
+            newPitcher = new Pitcher();          
         }
         public int GetNewCupInventory()
         {
@@ -146,25 +144,66 @@ namespace LemonadeStand
         }
         public void DisplayInventory()
         {
-            Console.Clear();
             Console.WriteLine("your Total Inventory: \n -Cups: " + totalInventory.cupInventory + "\n -Lemons: " + totalInventory.lemonInventory + "\n -Cups Of Sugar: " + totalInventory.sugarInventory + "\n -Ice Cubes: " + totalInventory.iceCubeInventory + "\n -Remaining Budget: " + totalInventory.budget);
-            Console.ReadLine();
         }
         public void GetPitcher()
         {
            
             newPitcher.ChoseCupsOfSugarAmount();
             recipeSugar = newPitcher.numberOfCupsOfSugar;
-            totalInventory.sugarInventory -= recipeSugar;
+            if (totalInventory.sugarInventory >= recipeSugar)
+            {
+                totalInventory.sugarInventory -= recipeSugar;
+                EndSales();
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough Sugar, You can't make a new pitcher!");
+                DisplayCurrentInventory();
+                EndSales();
+            }
 
             newPitcher.ChoseLemonAmount();
             recipeLemons = newPitcher.numberOfLemons;
-            totalInventory.lemonInventory -= recipeLemons;
+            if (totalInventory.lemonInventory >= recipeLemons)
+            {
+                totalInventory.lemonInventory -= recipeLemons;
+                EndSales();
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough Lemons, You can't make a new pitcher!");
+                DisplayCurrentInventory();
+                EndSales();
+            }
+            
             
             newPitcher.ChoseNumberOfIceCubes();
             recipeIce = newPitcher.numberOfIceCubes;
-            totalInventory.iceCubeInventory -= recipeIce;
-            
+            if (totalInventory.iceCubeInventory >= recipeIce)
+            {
+                totalInventory.iceCubeInventory -= recipeIce;
+                EndSales();
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough Ice, You can't make a new pitcher!");
+                DisplayCurrentInventory();
+                EndSales();
+            }
+
+            if (totalInventory.cupInventory >= 10)
+            {
+                totalInventory.cupInventory -= 10;
+                EndSales();
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough Cups, You can't make a new pitcher!");
+                DisplayCurrentInventory();
+                EndSales();
+            }
+
             salePrice = newPitcher.GetCupPrice();
         }
         public void DisplayCurrentInventory()
@@ -175,15 +214,52 @@ namespace LemonadeStand
             Console.WriteLine("- Your remaining Ice Cubes " + totalInventory.iceCubeInventory);
         }
         
+        public bool EndSales()
+        {
+            bool lastPitcher = true;
+if (totalInventory.cupInventory <= 10)
+            {
+                lastPitcher = false;
+                return lastPitcher;
+            }
+else if (totalInventory.iceCubeInventory <= 0)
+            {
+                lastPitcher = false;
+                return lastPitcher;
+            }
+else if (totalInventory.lemonInventory <= 0)
+            {
+                lastPitcher = false;
+                return lastPitcher;
+            }
+else if (totalInventory.sugarInventory <= 0)
+            {
+                lastPitcher = false;
+                return lastPitcher;
+            }
+else
+            {
+                lastPitcher = true;
+                return lastPitcher;
+            }
+        }
         public void SellOneCup()
         {
             if (newPitcher.pitcherCups == null || newPitcher.pitcherCups.Count == 0)
             {
-                newPitcher = new Pitcher();
-                GetPitcher();
-                DisplayCurrentInventory();
-                Console.ReadLine();
-                SellOneCup();
+                if (totalInventory.cupInventory < 10 || totalInventory.iceCubeInventory < 1 || totalInventory.lemonInventory < 1 || totalInventory.sugarInventory < 1)
+                {
+                    Console.WriteLine("You've run out of ingrediants!");
+                    DisplaySales();
+                }
+                else
+                {
+                    newPitcher = new Pitcher();
+                    GetPitcher();
+                    DisplayCurrentInventory();
+                    Console.ReadLine();
+                    SellOneCup();
+                }
             }
             else
             {
