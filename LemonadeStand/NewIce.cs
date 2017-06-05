@@ -8,8 +8,13 @@ namespace LemonadeStand
 {
     class NewIce
     {
+        TotalInventory totalInventory;
         public int BoughtIceCubes;
         public static double iceCubePrice;
+        public NewIce(TotalInventory totalInventory)
+        {
+            this.totalInventory = totalInventory;
+        }
         public int GetIceCubes()
         {
             Console.WriteLine("How many Ice Cubes do you want to buy today? Each ice cube is $0.03. Enter the number of ice cubes you want to buy today.");

@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         public double totalNetSales;
         public double profit;
+       
         Day round; 
         public void menu()
         {
@@ -89,12 +90,12 @@ namespace LemonadeStand
         {
             Console.WriteLine("after a week of sales you close up the lemonade stand.");
             totalNetSales += round.dailyNetSales;
-            Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + GetProfit());
+            Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + profit);
             Console.ReadLine();
         }
         public double GetProfit()
         {
-            double profit = (totalNetSales -50);
+             profit = (totalNetSales - 50);
             return profit; 
         }
     }

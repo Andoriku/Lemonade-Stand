@@ -11,7 +11,7 @@ namespace LemonadeStand
         TotalInventory totalInventory;
         NewCups newCups;
         NewLemons newLemons;
-        NewIce NewIce = new NewIce();
+        NewIce newIce;
         NewSugar newSugar;
         public Pitcher newPitcher;
         public double todaysNetSales;
@@ -39,6 +39,7 @@ namespace LemonadeStand
             newLemons = new NewLemons(totalInventory);
             newCups = new NewCups(totalInventory);
             newSugar = new NewSugar(totalInventory);
+            newIce = new NewIce(totalInventory);
             newPitcher = new Pitcher();
             passedSales = todaysNetSales;         
         }
@@ -67,11 +68,11 @@ namespace LemonadeStand
             return totalInventory.iceCubeInventory;
         }
         public double GetNewBudget(double price)
-        {
+{
             if (price < totalInventory.budget)
             {
                 totalInventory.budget -= (price);
-                Math.Round(totalInventory.budget, 2);
+                totalInventory.budget = Math.Round(totalInventory.budget, 2);
                 Console.WriteLine("you have $" + totalInventory.budget + " left.");
                 Console.ReadLine();
                 return totalInventory.budget;
@@ -107,8 +108,8 @@ namespace LemonadeStand
                 else if (price == iceCubePrice)
                 {
                     boughtIceCubes = 0;
-                    NewIce.GetIceCubes();
-                    NewIce.GetPriceOfIceCubes();
+                    newIce.GetIceCubes();
+                    newIce.GetPriceOfIceCubes();
                     double newIceCubePrice = NewIce.iceCubePrice;
                     GetNewBudget(newIceCubePrice);
                 }
@@ -138,8 +139,8 @@ namespace LemonadeStand
         }
         public void GetTodaysIce()
         {
-            boughtIceCubes = NewIce.GetIceCubes();
-            iceCubePrice = NewIce.GetPriceOfIceCubes();
+            boughtIceCubes = newIce.GetIceCubes();
+            iceCubePrice = newIce.GetPriceOfIceCubes();
             GetNewIceInventory();
             GetNewBudget(iceCubePrice);
         }
