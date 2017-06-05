@@ -28,8 +28,22 @@ namespace LemonadeStand
                 GetIceCubes();
             }
             double iceCubePrice = BoughtIceCubes * .03;
-            Console.WriteLine("You bought " + BoughtIceCubes + " ice cubes for $" + iceCubePrice);
-            return BoughtIceCubes;
+
+            if (iceCubePrice < totalInventory.budget)
+            {
+                Console.WriteLine("You bought " + BoughtIceCubes + " ice cubes for $" + iceCubePrice);
+                return BoughtIceCubes;
+            }
+            else if (iceCubePrice > totalInventory.budget)
+            {
+                Console.WriteLine("You do not have enough to buy that many ice cubes! try again.");
+                return GetIceCubes();
+            }
+            else
+            {
+                Console.WriteLine("You bought " + BoughtIceCubes + " ice cubes for $" + iceCubePrice);
+                return BoughtIceCubes;
+            }
         }
         public double GetPriceOfIceCubes()
         {

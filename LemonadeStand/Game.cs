@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Game
     {
-        public double totalNetSales;
+        private double totalNetSales;
         public double profit;
        
         Day round; 
@@ -54,6 +54,7 @@ namespace LemonadeStand
 
                 round.CalculateSales();
                 round.DisplayTodaysSales();
+                totalNetSales += round.dailyNetSales;
             }
             EndGame();
         }
@@ -89,7 +90,6 @@ namespace LemonadeStand
         public void EndGame()
         {
             Console.WriteLine("after a week of sales you close up the lemonade stand.");
-            totalNetSales += round.dailyNetSales;
             Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + profit);
             Console.ReadLine();
         }
