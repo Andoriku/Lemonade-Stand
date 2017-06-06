@@ -162,6 +162,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You dont have enough Sugar, You can't make a new pitcher!");
                 DisplayCurrentInventory();
+                newPitcher.ChoseCupsOfSugarAmount();
                 EndSales();
             }
 
@@ -176,6 +177,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You dont have enough Lemons, You can't make a new pitcher!");
                 DisplayCurrentInventory();
+                newPitcher.ChoseLemonAmount();
                 EndSales();
             }
             
@@ -191,6 +193,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("You dont have enough Ice, You can't make a new pitcher!");
                 DisplayCurrentInventory();
+                newPitcher.ChoseNumberOfIceCubes();
                 EndSales();
             }
 
