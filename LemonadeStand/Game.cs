@@ -9,10 +9,10 @@ namespace LemonadeStand
     class Game
     {
         private double totalNetSales;
-        public double profit;
+        private double profit;
        
         Day round; 
-        public void menu()
+        public void RunMenu()
         {
             Console.WriteLine("Welcome to Lemonade Stand. What would you like to do? \n-Start New Game (new) \n-Load Game (load) \n-Rules (rules) \n-Credits (credits)");
             string selection = Console.ReadLine();
@@ -37,11 +37,11 @@ namespace LemonadeStand
                     Console.WriteLine("Please choose 'new','load','rules', or 'credits'");
                     Console.ReadLine();
                     Console.Clear();
-                    menu();
+                    RunMenu();
                     break;
             }
         }
-        public void RunGame()
+        private void RunGame()
         {
             Player player1 = new Player();
             player1.MakePlayerName();
@@ -70,7 +70,7 @@ namespace LemonadeStand
             else if (selection == "back")
             {
                 Console.Clear();
-                menu();
+                RunMenu();
             }
             else
             {
@@ -84,15 +84,15 @@ namespace LemonadeStand
             Console.WriteLine("This game was designed and developed by: ANDREW JORDAN \nHit enter to go back");
             Console.ReadLine();
             Console.Clear();
-            menu();
+            RunMenu();
         }
-        public void EndGame()
+        private void EndGame()
         {
             Console.WriteLine("after a week of sales you close up the lemonade stand.");
             Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + GetProfit());
             Console.ReadLine();
         }
-        public double GetProfit()
+        private double GetProfit()
         {
              profit = (totalNetSales - 50);
             return profit; 

@@ -8,11 +8,11 @@ namespace LemonadeStand
 {
     public class DailyPurchase
     {
-        TotalInventory totalInventory;
-        NewCups newCups;
-        NewLemons newLemons;
-        NewIce newIce;
-        NewSugar newSugar;
+        private TotalInventory totalInventory;
+        private NewCups newCups;
+        private NewLemons newLemons;
+        private NewIce newIce;
+        private NewSugar newSugar;
         public Pitcher newPitcher;
         public double todaysNetSales;
         public int boughtCups;
@@ -43,31 +43,31 @@ namespace LemonadeStand
             newPitcher = new Pitcher();
             todaysNetSales = passedSales;         
         }
-        public int GetNewCupInventory()
+        private int GetNewCupInventory()
         {
             totalInventory.cupInventory += boughtCups;
             Console.WriteLine("You have " + totalInventory.cupInventory + " cups.");
             return totalInventory.cupInventory;
         }
-        public double GetNewLemonInventory()
+        private double GetNewLemonInventory()
         {
             totalInventory.lemonInventory += boughtLemons;
             Console.WriteLine("You have " + totalInventory.lemonInventory + " lemons.");
             return totalInventory.lemonInventory;
         }
-        public double GetNewSugarInventory()
+        private double GetNewSugarInventory()
         {
             totalInventory.sugarInventory += boughtSugar;
             Console.WriteLine("You have " + totalInventory.sugarInventory + " cups of sugar.");
             return totalInventory.sugarInventory;
         }
-        public double GetNewIceInventory()
+        private double GetNewIceInventory()
         {
             totalInventory.iceCubeInventory += boughtIceCubes;
             Console.WriteLine("You have " + totalInventory.iceCubeInventory + " ice cubes.");
             return totalInventory.iceCubeInventory;
         }
-        public double GetNewBudget(double price)
+        private double GetNewBudget(double price)
 {
             if (price < totalInventory.budget)
             {
@@ -219,7 +219,7 @@ namespace LemonadeStand
             Console.WriteLine("- Your remaining Ice Cubes " + totalInventory.iceCubeInventory);
         }
         
-        public bool EndSales()
+        private bool EndSales()
         {
             bool lastPitcher = true;
 if (totalInventory.cupInventory <= 10)
