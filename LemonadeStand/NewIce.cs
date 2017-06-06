@@ -9,7 +9,7 @@ namespace LemonadeStand
     class NewIce
     {
         TotalInventory totalInventory;
-        public int BoughtIceCubes;
+        private int BoughtIceCubes;
         public static double iceCubePrice;
         public NewIce(TotalInventory totalInventory)
         {

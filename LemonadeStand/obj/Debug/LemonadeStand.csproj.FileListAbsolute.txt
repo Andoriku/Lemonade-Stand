@@ -4,4 +4,3 @@ C:\Users\Andrew Jordan\Documents\Visual Studio 2015\Projects\LemonadeStand\Lemon
 C:\Users\Andrew Jordan\Documents\Visual Studio 2015\Projects\LemonadeStand\Lemonade-Stand\LemonadeStand\bin\Debug\LemonadeStand.pdb
 C:\Users\Andrew Jordan\Documents\Visual Studio 2015\Projects\LemonadeStand\Lemonade-Stand\LemonadeStand\obj\Debug\LemonadeStand.exe
 C:\Users\Andrew Jordan\Documents\Visual Studio 2015\Projects\LemonadeStand\Lemonade-Stand\LemonadeStand\obj\Debug\LemonadeStand.pdb
-C:\Users\Andrew Jordan\Documents\Visual Studio 2015\Projects\LemonadeStand\Lemonade-Stand\LemonadeStand\obj\Debug\LemonadeStand.csprojResolveAssemblyReference.cache

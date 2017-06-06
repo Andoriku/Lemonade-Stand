@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Game NewGame = new LemonadeStand.Game();
             NewGame.RunMenu();

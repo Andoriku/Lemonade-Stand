@@ -8,8 +8,8 @@ namespace LemonadeStand
 {
     class CustomerList
     {
-        List<Customer> todaysCustomers;
-        Customer newCustomer;
+        private List<Customer> todaysCustomers;
+        private Customer newCustomer;
         public CustomerList()
         {
             todaysCustomers = new List<Customer>();

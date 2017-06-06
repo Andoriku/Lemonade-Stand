@@ -8,8 +8,8 @@ namespace LemonadeStand
 {
     class NewLemons
     {
-        TotalInventory totalInventory;
-        public int boughtLemons;
+        private TotalInventory totalInventory;
+        private int boughtLemons;
         public static double lemonPrice;
         public NewLemons(TotalInventory totalInventory)
         {

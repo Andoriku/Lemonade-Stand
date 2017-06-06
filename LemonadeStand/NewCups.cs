@@ -9,7 +9,7 @@ namespace LemonadeStand
     class NewCups
     {
         TotalInventory totalInventory;
-        public int BoughtCups;
+        private int BoughtCups;
         public static double cupPrice;
         public NewCups(TotalInventory totalInventory)
         {
