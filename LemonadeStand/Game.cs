@@ -45,13 +45,12 @@ namespace LemonadeStand
         {
             Player player1 = new Player();
             player1.MakePlayerName();
-            for (int i = 0; i <= 7; i++)
+            for (int i = 0; i <= 2; i++)
             {
-              round = new Day(player1);
+                round = new Day(player1);
                 round.GetTodaysWeather();
                 round.GetInventory();
                 round.GetRecipe();
-
                 round.CalculateSales();
                 round.DisplayTodaysSales();
                 totalNetSales += round.dailyNetSales;
@@ -90,7 +89,7 @@ namespace LemonadeStand
         public void EndGame()
         {
             Console.WriteLine("after a week of sales you close up the lemonade stand.");
-            Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + profit);
+            Console.WriteLine("Your total sales were: $" + totalNetSales + "\n Your net profit is: $" + GetProfit());
             Console.ReadLine();
         }
         public double GetProfit()

@@ -41,7 +41,7 @@ namespace LemonadeStand
             newSugar = new NewSugar(totalInventory);
             newIce = new NewIce(totalInventory);
             newPitcher = new Pitcher();
-            passedSales = todaysNetSales;         
+            todaysNetSales = passedSales;         
         }
         public int GetNewCupInventory()
         {
