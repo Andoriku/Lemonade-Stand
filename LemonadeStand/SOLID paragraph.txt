@@ -1,0 +1,2 @@
+I used the Single-Responsability Principle in the game class with the method GetProfit(); in the Game class. this method does one thing and one thing well, and passes that information onto the next method. 
+this can also be seenin my getRandomDouble(); method. I created this method to get a random double within a specified range the user passes in when the method is called. It is designed to geterate its double and thats it, self contained and recallable. 
