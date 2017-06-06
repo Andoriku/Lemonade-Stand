@@ -45,7 +45,7 @@ namespace LemonadeStand
         {
             Player player1 = new Player();
             player1.MakePlayerName();
-            for (int i = 0; i <= 2; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 round = new Day(player1);
                 round.GetTodaysWeather();
